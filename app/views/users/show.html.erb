@@ -1,15 +1,15 @@
 <p id="notice"></p>
-<div class="container px-5 px-m-0">
+<div class="container px-5 px-sm-0">
   <div class="row">
-    <%= render 'user-info', users: @users %>
+    <%= render 'books/user-info', books: @books %>
     <div class="col-md-8 offset-md-1">
       <h2>Books</h2>
       <table class="table table-hover table-inberse">
         <thead>
           <tr>
             <th></th>
-            <th><%= @book.title %></th>
-            <th><%= @book.body %></th>
+            <th>Title</th>
+            <th>Opinion</th>
             <th colspan="3"></th>
           </tr>
         </thead>
@@ -18,15 +18,15 @@
           <tr>
             <td>
               <%= link_to user_path(user.id) do %>
-                <%= image_tag user.get_image %>
+                <%= image_tag @user.get_image %>
               <% end %>
             </td>
             <td>
-              <%= link_to @book.title, @book_path(book.id), class: "book_#{book.id}" %>
+              <%= link_to @book.title, book_path(book.id), class: "book_#{book.id}" %>
             </td>
-            <td><%= user.body %></td>
+            <td><%= @user.body %></td>
           </tr>
-          <% end >
+          <% end %>
         </tbody>
       </table>
     </div>
